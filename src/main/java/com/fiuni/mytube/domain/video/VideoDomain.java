@@ -29,11 +29,11 @@ public class VideoDomain implements BaseDomain {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "id_user", referencedColumnName = "id_user", nullable = false)
+    @JoinColumn(name = "fk_id_user", referencedColumnName = "id_user", nullable = false)
     private UserDomain user;
 
     @ManyToOne
-    @JoinColumn(name = "id_channel", referencedColumnName = "id_channel", nullable = false)
+    @JoinColumn(name = "fk_id_channel", referencedColumnName = "id_channel", nullable = false)
     private ChannelDomain channel;
 
     @Column(name = "str_tittle", length = 255)

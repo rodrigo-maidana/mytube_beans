@@ -37,7 +37,7 @@ public class CommentDomain implements BaseDomain {
     private VideoDomain video;
 
     @ManyToOne
-    @JoinColumn(name = "id_parent_comment")
+    @JoinColumn(name = "fk_id_parent_comment")
     private CommentDomain parentComment;
 
     @Column(name = "str_content", length = 255, nullable = false)
