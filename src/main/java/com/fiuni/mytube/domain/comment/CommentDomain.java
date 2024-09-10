@@ -1,8 +1,9 @@
 package com.fiuni.mytube.domain.comment;
 
+import java.io.Serial;
 import java.util.Date;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import com.fiuni.mytube.domain.base.BaseDomain;
 import com.fiuni.mytube.domain.user.UserDomain;
@@ -19,6 +20,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class CommentDomain implements BaseDomain {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -27,11 +29,11 @@ public class CommentDomain implements BaseDomain {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "id_user", referencedColumnName = "id_user", nullable = false)
+    @JoinColumn(name = "fk_id_user", referencedColumnName = "id_user", nullable = false)
     private UserDomain user;
 
     @ManyToOne
-    @JoinColumn(name = "id_video", referencedColumnName = "id_video", nullable = false)
+    @JoinColumn(name = "fk_id_video", referencedColumnName = "id_video", nullable = false)
     private VideoDomain video;
 
     @ManyToOne

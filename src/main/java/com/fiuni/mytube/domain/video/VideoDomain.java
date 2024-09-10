@@ -1,8 +1,9 @@
 package com.fiuni.mytube.domain.video;
 
+import java.io.Serial;
 import java.util.Date;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import com.fiuni.mytube.domain.base.BaseDomain;
 import com.fiuni.mytube.domain.user.UserDomain;
@@ -19,6 +20,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class VideoDomain implements BaseDomain {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id

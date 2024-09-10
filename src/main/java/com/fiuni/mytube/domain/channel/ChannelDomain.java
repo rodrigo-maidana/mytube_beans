@@ -1,8 +1,9 @@
 package com.fiuni.mytube.domain.channel;
 
+import java.io.Serial;
 import java.util.Date;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import com.fiuni.mytube.domain.base.BaseDomain;
 
@@ -18,6 +19,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class ChannelDomain implements BaseDomain {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -26,7 +28,7 @@ public class ChannelDomain implements BaseDomain {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "id_user", referencedColumnName = "id_user", nullable = false)
+    @JoinColumn(name = "fk_id_user", referencedColumnName = "id_user", nullable = false)
     private UserDomain user;
 
     @Column(name = "str_channel_name", length = 100, nullable = false)

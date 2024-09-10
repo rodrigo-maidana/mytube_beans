@@ -1,8 +1,9 @@
 package com.fiuni.mytube.domain.subscription;
 
+import java.io.Serial;
 import java.util.Date;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import com.fiuni.mytube.domain.base.BaseDomain;
 import com.fiuni.mytube.domain.user.UserDomain;
@@ -19,6 +20,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class SubscriptionDomain implements BaseDomain {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -27,11 +29,11 @@ public class SubscriptionDomain implements BaseDomain {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "id_user", referencedColumnName = "id_user", nullable = false)
+    @JoinColumn(name = "fk_id_user", referencedColumnName = "id_user", nullable = false)
     private UserDomain user;
 
     @ManyToOne
-    @JoinColumn(name = "id_channel", referencedColumnName = "id_channel", nullable = false)
+    @JoinColumn(name = "fk_id_channel", referencedColumnName = "id_channel", nullable = false)
     private ChannelDomain channel;
 
     @Column(name = "date_subscription_date")

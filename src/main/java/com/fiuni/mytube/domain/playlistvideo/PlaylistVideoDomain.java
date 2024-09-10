@@ -1,6 +1,6 @@
 package com.fiuni.mytube.domain.playlistvideo;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import com.fiuni.mytube.domain.base.BaseDomain;
 import com.fiuni.mytube.domain.playlist.PlaylistDomain;
@@ -10,6 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+import java.io.Serial;
+
 @Entity
 @Table(name = "playlist_videos")
 @Data
@@ -17,6 +19,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class PlaylistVideoDomain implements BaseDomain {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -25,10 +28,10 @@ public class PlaylistVideoDomain implements BaseDomain {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "id_playlist", referencedColumnName = "id_playlists", nullable = false)
+    @JoinColumn(name = "fk_id_playlist", referencedColumnName = "id_playlists", nullable = false)
     private PlaylistDomain playlist;
 
     @ManyToOne
-    @JoinColumn(name = "id_video", referencedColumnName = "id_video", nullable = false)
+    @JoinColumn(name = "fk_id_video", referencedColumnName = "id_video", nullable = false)
     private VideoDomain video;
 }
