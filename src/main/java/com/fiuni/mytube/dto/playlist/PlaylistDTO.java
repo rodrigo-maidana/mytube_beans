@@ -15,7 +15,7 @@ public class PlaylistDTO extends BaseDTO {
 
     private static final long serialVersionUID = 1L;
 
-    private UserDTO user;
+    private Integer userId;
     private String playlistName;
     private Date creationDate;
     private String visibility;

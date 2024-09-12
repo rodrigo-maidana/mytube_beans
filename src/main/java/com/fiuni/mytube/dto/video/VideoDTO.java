@@ -3,8 +3,6 @@ package com.fiuni.mytube.dto.video;
 import java.util.Date;
 
 import com.fiuni.mytube.dto.base.BaseDTO;
-import com.fiuni.mytube.dto.user.UserDTO;
-import com.fiuni.mytube.dto.channel.ChannelDTO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,8 +14,8 @@ public class VideoDTO extends BaseDTO {
 
     private static final long serialVersionUID = 1L;
 
-    private UserDTO user;
-    private ChannelDTO channel;
+    private Integer userId;
+    private Integer channelId;
     private String title;
     private String description;
     private String videoUrl;

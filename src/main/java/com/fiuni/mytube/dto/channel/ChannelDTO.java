@@ -3,7 +3,6 @@ package com.fiuni.mytube.dto.channel;
 import java.util.Date;
 
 import com.fiuni.mytube.dto.base.BaseDTO;
-import com.fiuni.mytube.dto.user.UserDTO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -15,7 +14,7 @@ public class ChannelDTO extends BaseDTO {
 
     private static final long serialVersionUID = 1L;
 
-    private UserDTO user;
+    private Integer userId;
     private String channelName;
     private String channelDescription;
     private Date creationDate;
