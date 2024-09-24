@@ -15,10 +15,8 @@ public class UserDTO extends BaseDTO {
 
 	private String username;
 	private String email;
-	//Quitamos contraseña por seguridad
 	private Date registrationDate;
 	private String avatarUrl;
 	private String bio;
-	private String userType; // Usamos String para evitar acoplar con el enum directamente
-	//Quitamos boolean deleted;
+	private String roleName; //RoleName para reflejar la entidad Role
 }

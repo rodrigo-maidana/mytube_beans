@@ -1,12 +1,8 @@
 package com.fiuni.mytube.domain.user;
 
-import java.io.Serial;
-import java.util.Date;
-
 import jakarta.persistence.*;
-
+import java.util.Date;
 import com.fiuni.mytube.domain.base.BaseDomain;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -17,9 +13,6 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDomain implements BaseDomain {
-
-	@Serial
-	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,9 +37,9 @@ public class UserDomain implements BaseDomain {
 	@Column(name = "str_bio")
 	private String bio;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "enum_user_type", nullable = false)
-	private UserType userType;
+	@ManyToOne
+	@JoinColumn(name = "id_role", nullable = false)
+	private RoleDomain role; // Cambiamos el Enum por la entidad RoleDomain
 
 	@Column(name = "bool_deleted", nullable = false)
 	private Boolean deleted;
