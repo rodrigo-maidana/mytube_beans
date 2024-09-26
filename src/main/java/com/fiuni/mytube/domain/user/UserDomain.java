@@ -1,18 +1,25 @@
 package com.fiuni.mytube.domain.user;
 
 import jakarta.persistence.*;
+
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
+
 import com.fiuni.mytube.domain.base.BaseDomain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDomain implements BaseDomain {
+public class UserDomain implements BaseDomain, UserDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,4 +50,30 @@ public class UserDomain implements BaseDomain {
 
 	@Column(name = "bool_deleted", nullable = false)
 	private Boolean deleted;
+
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return List.of(new SimpleGrantedAuthority((role.getName())));
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
 }
