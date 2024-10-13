@@ -2,6 +2,7 @@ package com.fiuni.mytube.domain.channel;
 
 import java.io.Serial;
 import java.util.Date;
+import java.util.Set;
 
 import jakarta.persistence.*;
 
@@ -48,4 +49,8 @@ public class ChannelDomain implements BaseDomain {
 
     @Column(name = "bool_deleted", nullable = false)
     private Boolean deleted;
+
+    // Relación muchos a muchos con usuarios, a través de suscripciones
+    @ManyToMany(mappedBy = "subscribedChannels")
+    private Set<UserDomain> subscribers;
 }

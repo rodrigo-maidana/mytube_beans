@@ -15,8 +15,5 @@ public class UserDTO extends BaseDTO {
 
 	private String username;
 	private String email;
-	private Date registrationDate;
-	private String avatarUrl;
-	private String bio;
 	private String roleName; //RoleName para reflejar la entidad Role
 }
